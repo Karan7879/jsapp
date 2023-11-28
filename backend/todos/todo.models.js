@@ -9,8 +9,16 @@ const todoSchema = new mongoose.Schema({
     },
 
     createdBy:{
-        type:mongoose.Schema.Types.ObjectId
-    }
+        type:mongoose.Schema.Types.ObjectId,
+        refr:'User'
+    },
+    subTodos:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            refr:'Subtodo'
+        }
+    ]
+
 },{timestamps:true})
 
 export const Todo = mongoose.model("Todo",todoSchema)
